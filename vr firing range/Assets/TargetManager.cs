@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
+    public int Level;
+    public GameObject[] targetPrefabs;
+    public GameObject[] targets;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,8 @@ public class TargetManager : MonoBehaviour
     {
         
     }
+    public void PopUpTargets()
+    {
+
+    }    
 }
