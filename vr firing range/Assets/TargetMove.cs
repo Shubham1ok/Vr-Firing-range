@@ -15,11 +15,7 @@ public class TargetMove : MonoBehaviour
     public bool TargetPoppedUp=false;
     public int isCorrect;//value of the target if 1= correct, 0 would mean not correct
     float localtimer;
-    void Start()
-    {
-       
-        speed = Random.Range(3,8);
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -31,6 +27,20 @@ public class TargetMove : MonoBehaviour
             
             PopUpTarget();
            
+        }
+
+        if (bshouldGoDown)
+        {
+            if (TargetPoppedUp)
+            {
+                goDownTimer -= Time.deltaTime;
+                if (goDownTimer <= 0)
+                {
+
+                    GoDownTarget();
+
+                }
+            }
         }
         
     }
@@ -49,7 +59,14 @@ public class TargetMove : MonoBehaviour
 
     public void GoDownTarget()
     {
-
+        if (transform.position.y >= -1+0.05f)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -1, transform.position.z), Time.deltaTime * 10);
+        }
+        else
+        {
+            FindObjectOfType<TargetManager>().ResetTargets();
+        }
     }
     public void MoveTarget()
     {
@@ -100,6 +117,8 @@ public class TargetMove : MonoBehaviour
         if(collision.collider.CompareTag("Bullet"))
         {
             TargetHit();
+            FindObjectOfType<TargetManager>().disableColliders();
+
             Debug.Log("Bullet hit");
         }
     }
@@ -111,6 +130,6 @@ public class TargetMove : MonoBehaviour
     {
         popUpTimer = 3;
         TargetPoppedUp = false;
-        transform.position = new Vector3(transform.position.x,-1,transform.position.z);
+       
     }
 }

@@ -1050,12 +1050,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: Dir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MaxX
       value: 11.188
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MinX
       value: 2.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: popUpTimer
@@ -1067,7 +1075,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMove
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: goDownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: bshouldGoDown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMoveRandom
@@ -10812,8 +10828,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.00018337974, y: 0.9995568, z: 0.029097738, w: 0.0062921345}
-  m_LocalPosition: {x: 8.355178, y: 3.555937, z: 27.743938}
+  m_LocalRotation: {x: -0.0061818436, y: 0.9766054, z: 0.028434262, w: 0.21306136}
+  m_LocalPosition: {x: -30.579609, y: 2.260095, z: 85.43358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10902,7 +10918,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2b4944ec3dce30b4ab1e7930e6440267, type: 2}
   m_CullingMode: 0
@@ -12191,7 +12207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: speed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: popUpTimer
@@ -12203,7 +12219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMove
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: goDownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: bshouldGoDown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMoveRandom
@@ -12793,12 +12817,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: Dir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MaxX
       value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MinX
       value: -5.065
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: popUpTimer
@@ -12810,7 +12842,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMove
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: goDownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: bshouldGoDown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMoveRandom
@@ -15808,6 +15848,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: Dir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MaxX
       value: 18.277
       objectReference: {fileID: 0}
@@ -15816,8 +15860,12 @@ PrefabInstance:
       value: 9.96
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: isCorrect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: popUpTimer
@@ -15829,7 +15877,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMove
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: goDownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: bshouldGoDown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMoveRandom
@@ -17617,6 +17673,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
   m_PrefabInstance: {fileID: 1683099555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1697427527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
+  m_PrefabInstance: {fileID: 2147246538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1701318637
 PrefabInstance:
@@ -20163,6 +20224,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: Dir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: MaxX
       value: 1.441
       objectReference: {fileID: 0}
@@ -20184,7 +20249,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMove
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: goDownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
+      propertyPath: bshouldGoDown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152753354085400191, guid: 80ab3af18b1af704388de0549ffadb22, type: 3}
       propertyPath: bshouldMoveRandom
@@ -21331,7 +21404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72dea836873b7f49b6bec0d83cde40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 0
+  Level: 3
   targetPrefabs: []
   targets:
   - {fileID: 1217592408}
@@ -21339,6 +21412,7 @@ MonoBehaviour:
   - {fileID: 551174793}
   - {fileID: 1509117593}
   - {fileID: 582374129}
+  RoundCounter: 0
 --- !u!1001 &2041032330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22082,6 +22156,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4802134562677756, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
   m_PrefabInstance: {fileID: 2147246538}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &2147246542
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697427527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a90ec1b8be596134b912428bfce1f226, type: 3}
 --- !u!1001 &1941707740727717325
 PrefabInstance:
   m_ObjectHideFlags: 0
