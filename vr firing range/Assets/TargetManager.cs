@@ -18,8 +18,25 @@ public class TargetManager : MonoBehaviour
     {
         
     }
-    public void PopUpTargets()
+     public void CheckHit(int HitValue)
     {
-
-    }    
+        if(HitValue==0)
+        {
+            Debug.Log("correct hit");
+        }
+        else
+        {
+            Debug.Log("Wrong hit");
+        }
+        Invoke(nameof(ResetTargets),3f);
+    }
+    public void ResetTargets()
+    {
+        foreach (var item in targets)
+        {
+            item.GetComponent<TargetMove>().resetValues();
+            item.SetActive(false);
+        }
+        Debug.Log("Targets reset");
+    }
 }
