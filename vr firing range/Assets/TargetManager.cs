@@ -7,7 +7,7 @@ public class TargetManager : MonoBehaviour
     public int Level;
     public GameObject[] targetPrefabs;
     public GameObject[] targets;
-    public int RoundCounter;
+    public int RoundCounter,MaxRounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,110 +50,140 @@ public class TargetManager : MonoBehaviour
     }
     public void SpawnTargets()
     {
-        int i = 0;
-        int r = Random.Range(0, targets.Length);
-        switch (Level)
-        {   
-            case 0:
-               
-                foreach (var item in targets)
-                {
-                    i++;
-                    item.SetActive(true);
-                    item.GetComponent<TargetMove>().popUpTimer = 3;
-                    item.GetComponent<TargetMove>().bshouldGoDown=false;
-                    item.GetComponent<TargetMove>().bshouldMove=false;
-                    item.GetComponent<TargetMove>().TargetPoppedUp=false;
-                    item.GetComponent<TargetMove>().bshouldMoveRandom=false;
-                    item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
-                    item.GetComponent<TargetMove>().goDownTimer=3;
-                    item.GetComponent<Collider>().enabled = true;
-                    if (i==r)
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 1;
-                    }
-                    else
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 0;
-                    }
-                }
-                break;
-            case 1:
-                i = 0;
-                r = Random.Range(0, targets.Length);
-                foreach (var item in targets)
-                {
-                    i++;
-                    item.SetActive(true);
-                    item.GetComponent<TargetMove>().popUpTimer = 3;
-                    item.GetComponent<TargetMove>().bshouldGoDown = true;
-                    item.GetComponent<TargetMove>().bshouldMove = false;
-                    item.GetComponent<TargetMove>().TargetPoppedUp = false;
-                    item.GetComponent<TargetMove>().bshouldMoveRandom = false;
-                    item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
-                    item.GetComponent<TargetMove>().goDownTimer = 3;
-                    item.GetComponent<Collider>().enabled = true;
-                    if (i == r)
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 1;
-                    }
-                    else
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 0;
-                    }
-                }
-                break;
-            case 2:
-                i = 0;
-                r = Random.Range(0, targets.Length);
-                foreach (var item in targets)
-                {
-                    i++;
-                    item.SetActive(true);
-                    item.GetComponent<TargetMove>().popUpTimer = 3;
-                    item.GetComponent<TargetMove>().bshouldGoDown = false;
-                    item.GetComponent<TargetMove>().TargetPoppedUp = false;
-                    item.GetComponent<TargetMove>().bshouldMove = true;
-                    item.GetComponent<TargetMove>().bshouldMoveRandom = false;
-                    item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
-                    item.GetComponent<TargetMove>().goDownTimer = 3;
-                    item.GetComponent<Collider>().enabled = true;
-                    if (i == r)
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 1;
-                    }
-                    else
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 0;
-                    }
-                }
-                break;
-            case 3:
-                i = 0;
-                r = Random.Range(0, targets.Length);
-                foreach (var item in targets)
-                {
-                    i++;
-                    item.SetActive(true);
-                    item.GetComponent<TargetMove>().popUpTimer = 3;
-                    item.GetComponent<TargetMove>().bshouldGoDown = true;
-                    item.GetComponent<TargetMove>().TargetPoppedUp = false;
-                    item.GetComponent<TargetMove>().bshouldMove = true;
-                    item.GetComponent<TargetMove>().bshouldMoveRandom = false;
-                    item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
-                    item.GetComponent<TargetMove>().goDownTimer = 3;
-                    item.GetComponent<Collider>().enabled = true;
-                    if (i == r)
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 1;
-                    }
-                    else
-                    {
-                        item.GetComponent<TargetMove>().isCorrect = 0;
-                    }
-                }
-                break;
+        RoundCounter++;
+        if (RoundCounter <= MaxRounds)
+        {
+            int i = 0;
+            int r = Random.Range(0, targets.Length);
+            switch (Level)
+            {
+                case 0://only pop up and go down when shot
 
+                    foreach (var item in targets)
+                    {
+                        i++;
+                        item.SetActive(true);
+                        item.GetComponent<TargetMove>().popUpTimer = 3;
+                        item.GetComponent<TargetMove>().bshouldGoDown = false;
+                        item.GetComponent<TargetMove>().bshouldMove = false;
+                        item.GetComponent<TargetMove>().TargetPoppedUp = false;
+                        item.GetComponent<TargetMove>().bshouldMoveRandom = false;
+                        item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
+                        item.GetComponent<TargetMove>().goDownTimer = 5;
+                        item.GetComponent<Collider>().enabled = true;
+                        if (i == r)
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 1;
+                        }
+                        else
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 0;
+                        }
+                    }
+                    break;
+                case 1://only pop up and go down after some time
+                    i = 0;
+                    r = Random.Range(0, targets.Length);
+                    foreach (var item in targets)
+                    {
+                        i++;
+                        item.SetActive(true);
+                        item.GetComponent<TargetMove>().popUpTimer = 3;
+                        item.GetComponent<TargetMove>().bshouldGoDown = true;
+                        item.GetComponent<TargetMove>().bshouldMove = false;
+                        item.GetComponent<TargetMove>().TargetPoppedUp = false;
+                        item.GetComponent<TargetMove>().bshouldMoveRandom = false;
+                        item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
+                        item.GetComponent<TargetMove>().goDownTimer = 5;
+                        item.GetComponent<Collider>().enabled = true;
+                        if (i == r)
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 1;
+                        }
+                        else
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 0;
+                        }
+                    }
+                    break;
+                case 2://only pop up and go move
+                    i = 0;
+                    r = Random.Range(0, targets.Length);
+                    foreach (var item in targets)
+                    {
+                        i++;
+                        item.SetActive(true);
+                        item.GetComponent<TargetMove>().popUpTimer = 3;
+                        item.GetComponent<TargetMove>().bshouldGoDown = false;
+                        item.GetComponent<TargetMove>().TargetPoppedUp = false;
+                        item.GetComponent<TargetMove>().bshouldMove = true;
+                        item.GetComponent<TargetMove>().bshouldMoveRandom = false;
+                        item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
+                        item.GetComponent<TargetMove>().goDownTimer = 5;
+                        item.GetComponent<Collider>().enabled = true;
+                        if (i == r)
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 1;
+                        }
+                        else
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 0;
+                        }
+                    }
+                    break;
+                case 3://pop up and move and go down
+                    i = 0;
+                    r = Random.Range(0, targets.Length);
+                    foreach (var item in targets)
+                    {
+                        i++;
+                        item.SetActive(true);
+                        item.GetComponent<TargetMove>().popUpTimer = 3;
+                        item.GetComponent<TargetMove>().bshouldGoDown = true;
+                        item.GetComponent<TargetMove>().TargetPoppedUp = false;
+                        item.GetComponent<TargetMove>().bshouldMove = true;
+                        item.GetComponent<TargetMove>().bshouldMoveRandom = false;
+                        item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
+                        item.GetComponent<TargetMove>().goDownTimer = 5;
+                        item.GetComponent<Collider>().enabled = true;
+                        if (i == r)
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 1;
+                        }
+                        else
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 0;
+                        }
+                    }
+                    break;
+                case 4://pop up and move and go down
+                    i = 0;
+                    r = Random.Range(0, targets.Length);
+                    foreach (var item in targets)
+                    {
+                        i++;
+                        item.SetActive(true);
+                        item.GetComponent<TargetMove>().popUpTimer = 3;
+                        item.GetComponent<TargetMove>().bshouldGoDown = true;
+                        item.GetComponent<TargetMove>().TargetPoppedUp = false;
+                        item.GetComponent<TargetMove>().bshouldMove = true;
+                        item.GetComponent<TargetMove>().bshouldMoveRandom = true;
+                        item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
+                        item.GetComponent<TargetMove>().goDownTimer = 5;
+                        item.GetComponent<Collider>().enabled = true;
+                        if (i == r)
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 1;
+                        }
+                        else
+                        {
+                            item.GetComponent<TargetMove>().isCorrect = 0;
+                        }
+                    }
+                    break;
+
+
+            }
         }
         
     }
