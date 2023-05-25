@@ -8,12 +8,17 @@ public class TargetManager : MonoBehaviour
     public GameObject[] targetPrefabs;
     public GameObject[] targets;
     public int RoundCounter,MaxRounds;
+    public GameObject RightImage;
+    public GameObject[] WrongImage;
     // Start is called before the first frame update
     void Start()
     {
+        StartSpawn();
+    }
+    public void StartSpawn()
+    {
         SpawnTargets();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +26,8 @@ public class TargetManager : MonoBehaviour
     }
      public void CheckHit(int HitValue)
     {
-        if(HitValue==0)
+        disableColliders();
+        if (HitValue==1)
         {
             Debug.Log("correct hit");
         }
@@ -29,12 +35,14 @@ public class TargetManager : MonoBehaviour
         {
             Debug.Log("Wrong hit");
         }
+       
         Invoke(nameof(ResetTargets),3f);
     }
     public void ResetTargets()
     {
         foreach (var item in targets)
         {
+            item.transform.position = new Vector3(item.transform.position.x,-1,item.transform.position.z);
             item.GetComponent<TargetMove>().resetValues();
             item.SetActive(false);
         }
@@ -54,6 +62,7 @@ public class TargetManager : MonoBehaviour
         if (RoundCounter <= MaxRounds)
         {
             int i = 0;
+            int im = 0;
             int r = Random.Range(0, targets.Length);
             switch (Level)
             {
@@ -61,7 +70,8 @@ public class TargetManager : MonoBehaviour
 
                     foreach (var item in targets)
                     {
-                        i++;
+                        
+                        
                         item.SetActive(true);
                         item.GetComponent<TargetMove>().popUpTimer = 3;
                         item.GetComponent<TargetMove>().bshouldGoDown = false;
@@ -71,14 +81,23 @@ public class TargetManager : MonoBehaviour
                         item.GetComponent<TargetMove>().speed = Random.Range(3, 8);
                         item.GetComponent<TargetMove>().goDownTimer = 5;
                         item.GetComponent<Collider>().enabled = true;
+                        
                         if (i == r)
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
+                            RightImage.transform.parent = item.transform;
+                            RightImage.transform.position = item.transform.position;
                         }
                         else
                         {
+                           
                             item.GetComponent<TargetMove>().isCorrect = 0;
+                            WrongImage[im].transform.parent = item.transform;
+                            WrongImage[im].transform.position = item.transform.position;
+                            im++;
+
                         }
+                        i++;
                     }
                     break;
                 case 1://only pop up and go down after some time
@@ -99,11 +118,17 @@ public class TargetManager : MonoBehaviour
                         if (i == r)
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
+                            RightImage.transform.parent = item.transform;
+                            RightImage.transform.position = item.transform.position;
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
+                            WrongImage[im].transform.parent = item.transform;
+                            WrongImage[im].transform.position = item.transform.position;
+                            im++;
                         }
+                        i++;
                     }
                     break;
                 case 2://only pop up and go move
@@ -124,11 +149,17 @@ public class TargetManager : MonoBehaviour
                         if (i == r)
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
+                            RightImage.transform.parent = item.transform;
+                            RightImage.transform.position = item.transform.position;
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
+                            WrongImage[im].transform.parent = item.transform;
+                            WrongImage[im].transform.position = item.transform.position;
+                            im++;
                         }
+                        i++;
                     }
                     break;
                 case 3://pop up and move and go down
@@ -149,11 +180,17 @@ public class TargetManager : MonoBehaviour
                         if (i == r)
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
+                            RightImage.transform.parent = item.transform;
+                            RightImage.transform.position = item.transform.position;
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
+                            WrongImage[im].transform.parent = item.transform;
+                            WrongImage[im].transform.position = item.transform.position;
+                            im++;
                         }
+                        i++;
                     }
                     break;
                 case 4://pop up and move and go down
@@ -174,11 +211,17 @@ public class TargetManager : MonoBehaviour
                         if (i == r)
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
+                            RightImage.transform.parent = item.transform;
+                            RightImage.transform.position = item.transform.position;
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
+                            WrongImage[im].transform.parent = item.transform;
+                            WrongImage[im].transform.position = item.transform.position;
+                            im++;
                         }
+                        i++;
                     }
                     break;
 

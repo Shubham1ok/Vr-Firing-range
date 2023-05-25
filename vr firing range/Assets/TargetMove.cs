@@ -117,7 +117,7 @@ public class TargetMove : MonoBehaviour
         if(collision.collider.CompareTag("Bullet"))
         {
             TargetHit();
-            FindObjectOfType<TargetManager>().disableColliders();
+            
 
             Debug.Log("Bullet hit");
         }
