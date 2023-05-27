@@ -12,7 +12,7 @@ public class TargetManager : MonoBehaviour
     public GameObject[] WrongImage;
     public int CorrectHits;
     public int WrongHits;
-   
+    public GameObject settingBoard;
     // Start is called before the first frame update
     void Start()
     {
@@ -244,6 +244,10 @@ public class TargetManager : MonoBehaviour
 
             }
             RoundCounter++;
+        }
+        else
+        {
+            settingBoard.SetActive(true);
         }
         
     }

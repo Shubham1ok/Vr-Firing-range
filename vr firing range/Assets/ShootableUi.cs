@@ -11,7 +11,8 @@ public class ShootableUi : MonoBehaviour
         infiniteMode,
         Sound1,
         Sound2,
-        Sound3
+        Sound3,
+        StartGame
     }
     public Type type;
     public int Change;
@@ -40,6 +41,24 @@ public class ShootableUi : MonoBehaviour
                 if(!(tmg.Level<0)&&!(tmg.Level>4))
                 tmg.Level += Change;
                 
+            }else if(type==Type.infiniteMode)
+            {
+                if(tmg.MaxRounds==int.MaxValue)
+                {
+                    tmg.MaxRounds = 0;
+                    transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.white;
+                }
+                else
+                {
+                    tmg.MaxRounds = int.MaxValue;
+                    transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.green;
+                }
+                
+                
+            }else if(type==Type.StartGame)
+            {
+                tmg.StartSpawn();
+                gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
     }
