@@ -13,6 +13,8 @@ public class TargetManager : MonoBehaviour
     public int CorrectHits;
     public int WrongHits;
     public GameObject settingBoard;
+    public AudioSource ad;
+    public AudioClip[] clips;
     // Start is called before the first frame update
     void Start()
     {
@@ -250,5 +252,10 @@ public class TargetManager : MonoBehaviour
             settingBoard.SetActive(true);
         }
         
+    }
+    public void PlaySound(int soundClip)
+    {
+        ad.clip = clips[soundClip];
+        ad.Play();
     }
 }
