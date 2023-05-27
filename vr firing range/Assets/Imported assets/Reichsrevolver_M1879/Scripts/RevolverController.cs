@@ -7,13 +7,18 @@ public class RevolverController : MonoBehaviour {
 
 	private bool rotatingRev = false;
 	private bool rotatingCyl = false;
-	private float endAngle = 60F;		// rotated angle
-
+	private float endAngle = 60F;       // rotated angle
+	public Animator ani;
 	void Start () {
 		cylTr = cylTr.transform;
 	}
 
 	void Update () {
+
+		if(Input.GetMouseButtonDown(0))
+        {
+			HammerStrike();
+        }
 		if (rotatingRev)
 			transform.Rotate (Vector3.up * revRotSpeed * Time.deltaTime);
 
@@ -25,7 +30,10 @@ public class RevolverController : MonoBehaviour {
 	public void FlipRevState () {
 		rotatingRev = !rotatingRev;
 	}
-
+	public void HammerStrike()
+    {
+		ani.SetTrigger("Shot1");
+    }
 	public void RotateCyl () {
 		if (endAngle == 360F && cylTr.localRotation.eulerAngles.y < 60F) {
 			endAngle = 0F;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3627437307267257503}
   - component: {fileID: 3627437307266502477}
   - component: {fileID: 3627437307265050563}
-  - component: {fileID: 3627437307266502474}
+  - component: {fileID: 833386762}
   m_Layer: 0
   m_Name: LP_Bullet
   m_TagString: Bullet
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3627437307266502474
-MeshCollider:
+--- !u!135 &833386762
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,10 +94,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 77faed45861990d4592d890b158ceb7d, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.0056115743
+  m_Center: {x: 0.000000059371814, y: 1.6543612e-24, z: -0.0000000025611377}
 --- !u!1 &3627437307267511193
 GameObject:
   m_ObjectHideFlags: 0
