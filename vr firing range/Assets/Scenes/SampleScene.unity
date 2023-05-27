@@ -6071,7 +6071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SOUND2
+  m_text: DRUM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SOUND3
+  m_text: TALKING
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -6680,7 +6680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  Change: -1
+  Change: 2
   tmg: {fileID: 0}
 --- !u!65 &301169169
 BoxCollider:
@@ -14360,7 +14360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  Change: -1
+  Change: 0
   tmg: {fileID: 0}
 --- !u!65 &896723869
 BoxCollider:
@@ -19971,7 +19971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SOUND1
+  m_text: RAIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -24846,7 +24846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  Change: -1
+  Change: 1
   tmg: {fileID: 0}
 --- !u!65 &1800524158
 BoxCollider:
@@ -28317,9 +28317,12 @@ MonoBehaviour:
   - {fileID: 692258193}
   CorrectHits: 0
   WrongHits: 0
-  settingBoard: {fileID: 0}
-  ad: {fileID: 0}
-  clips: []
+  settingBoard: {fileID: 371295985}
+  ad: {fileID: 2035984632}
+  clips:
+  - {fileID: 8300000, guid: a0e4a330953c0824e9af8eeed6adb004, type: 3}
+  - {fileID: 8300000, guid: f909c70a5b814b44eb1a7d4f0da3d3a3, type: 3}
+  - {fileID: 8300000, guid: d0bc7ae16ff2b5f4a9adcb5799e71b4d, type: 3}
 --- !u!82 &2035984632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28332,7 +28335,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.833
   m_Pitch: 1
   Loop: 0
   Mute: 0
