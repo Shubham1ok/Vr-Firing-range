@@ -9,7 +9,8 @@ public class UtilityScript : MonoBehaviour
         WrongHitsCounter,
         CorrectHitsCounter,
         Roundcounter,
-        MaxRoundCounter
+        MaxRoundCounter,
+        LevelCounter
     }
     public Type type;
     public TargetManager targetmanager;
@@ -38,6 +39,9 @@ public class UtilityScript : MonoBehaviour
         else if (type == Type.MaxRoundCounter)
         {
             textcomponent.text = targetmanager.MaxRounds.ToString();
+        }else if(type==Type.LevelCounter)
+        {
+            textcomponent.text = (targetmanager.Level + 1).ToString();
         }
     }
 }
