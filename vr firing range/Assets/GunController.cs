@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public float speed;
     private bool triggerPressed = false;
     public Transform ShootPoint;
+    public GameObject MuzzelFlash;
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -59,6 +60,7 @@ public class GunController : MonoBehaviour
             GameObject b = Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
             b.GetComponent<BulletScript>().BulletForce(speed);
             GetComponent<RevolverController>().HammerStrike();
+            MuzzelFlash.SetActive(true);
         }
         // Example: Instantiate a bullet or perform shooting animation
         // Instantiate(bulletPrefab, transform.position, transform.rotation);
