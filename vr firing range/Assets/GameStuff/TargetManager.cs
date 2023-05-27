@@ -65,12 +65,12 @@ public class TargetManager : MonoBehaviour
     }
     public void SpawnTargets()
     {
-        
+        int im = 0;
         if (RoundCounter < MaxRounds)
         {
             int i = 0;
-            int im = 0;
-            int r = Random.Range(0, targets.Length);
+            
+            int r = Random.Range(0, targets.Length-1);
             switch (Level)
             {
                 case 0://only pop up and go down when shot
@@ -114,7 +114,7 @@ public class TargetManager : MonoBehaviour
                     r = Random.Range(0, targets.Length);
                     foreach (var item in targets)
                     {
-                        i++;
+                        
                         item.SetActive(true);
                         item.GetComponent<TargetMove>().popUpTimer = 3;
                         item.GetComponent<TargetMove>().bshouldGoDown = true;
@@ -147,7 +147,7 @@ public class TargetManager : MonoBehaviour
                     r = Random.Range(0, targets.Length);
                     foreach (var item in targets)
                     {
-                        i++;
+                       
                         item.SetActive(true);
                         item.GetComponent<TargetMove>().popUpTimer = 3;
                         item.GetComponent<TargetMove>().bshouldGoDown = false;
@@ -181,7 +181,7 @@ public class TargetManager : MonoBehaviour
                     r = Random.Range(0, targets.Length);
                     foreach (var item in targets)
                     {
-                        i++;
+                        
                         item.SetActive(true);
                         item.GetComponent<TargetMove>().popUpTimer = 3;
                         item.GetComponent<TargetMove>().bshouldGoDown = true;
@@ -214,7 +214,7 @@ public class TargetManager : MonoBehaviour
                     r = Random.Range(0, targets.Length);
                     foreach (var item in targets)
                     {
-                        i++;
+                       
                         item.SetActive(true);
                         item.GetComponent<TargetMove>().popUpTimer = 3;
                         item.GetComponent<TargetMove>().bshouldGoDown = true;
@@ -250,6 +250,7 @@ public class TargetManager : MonoBehaviour
         else
         {
             settingBoard.SetActive(true);
+            RoundCounter = 0;
         }
         
     }

@@ -9,65 +9,77 @@ public class GunController : MonoBehaviour
     public bool bCanShoot=true;
     public GameObject Bullet;
     public float speed;
-    private bool triggerPressed = false;
+    
     public Transform ShootPoint;
     public GameObject MuzzelFlash;
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            ShootGun();
-        }
-        // Check if the trigger button is pressed
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, controller))
-        {
-            // Check if the trigger was just pressed down
-            if (!triggerPressed)
-            {
-                triggerPressed = true;
 
-                // Check if the hand holding the gun is pressing the trigger
-                if (IsTriggerHand())
+   
+    public OVRInput.Button shootButton;
+    public float fireRate = 0.5f;  // Adjust the fire rate as desired
+    private OVRGrabbable grabbable;
+  /*  private AudioSource audioS;*/
+    private bool isShooting = false;
+    private float nextShotTime = 0f;
+    public bool isAutomatic = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        grabbable = GetComponent<OVRGrabbable>();
+       /* audioS = GetComponent<AudioSource>();*/
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isAutomatic)
+        {
+            if (grabbable.isGrabbed)
+            {
+                if (OVRInput.GetDown(shootButton, grabbable.grabbedBy.GetController()))
                 {
-                    // Call the function to shoot the gun
-                    ShootGun();
+                    isShooting = true;
                 }
+                else if (OVRInput.GetUp(shootButton, grabbable.grabbedBy.GetController()))
+                {
+                    isShooting = false;
+                }
+            }
+
+            if (isShooting && Time.time >= nextShotTime)
+            {
+                ShootGun();
+                //audioS.Play();
+                nextShotTime = Time.time + 1f / fireRate;  // Calculate the next shot time based on fire rate
             }
         }
         else
         {
-            triggerPressed = false;
+            if (grabbable.isGrabbed && OVRInput.GetDown(shootButton, grabbable.grabbedBy.GetController()))
+            {
+                ShootGun();
+                //audioS.Play();
+            }
         }
+
     }
 
-    private bool IsTriggerHand()
-    {
-        // Get the OVRInput controller mask for the hand holding the gun
-        OVRInput.Controller handControllerMask = OVRInput.GetActiveController() & (OVRInput.Controller.LTouch | OVRInput.Controller.RTouch);
 
-        // Check if the hand holding the gun matches the controller mask
-        return (controller & handControllerMask) != 0;
-    }
 
     private void ShootGun()
     {
         // Add your gun shooting logic here
         Debug.Log("Gun fired!");
-        if (bCanShoot)
-        {
-            bCanShoot = false;
-            StartCoroutine(Shoot());
+      
+           
+         
             GameObject b = Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
-            b.GetComponent<BulletScript>().BulletForce(speed);
-            GetComponent<RevolverController>().HammerStrike();
-            MuzzelFlash.SetActive(true);
-        }
+        b.GetComponent<BulletScript>().BulletForce(speed);
+        GetComponent<RevolverController>().HammerStrike();
+        MuzzelFlash.SetActive(true);
+        
         // Example: Instantiate a bullet or perform shooting animation
         // Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
-    IEnumerator Shoot()
-    {
-        yield return new WaitForSeconds(FireDelay);
-        bCanShoot = true;
-    }
+    
 }
