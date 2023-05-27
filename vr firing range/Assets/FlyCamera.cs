@@ -5,7 +5,7 @@ public class FlyCamera : MonoBehaviour
     public float movementSpeed = 10f;  // Speed of camera movement
     public float lookSpeed = 5f;  // Speed of camera rotation
     private bool cursorLocked = true;  // Lock or unlock cursor
-
+    public GameObject Bullet;
     void Start()
     {
         // Lock the cursor to the center of the screen
@@ -37,6 +37,12 @@ public class FlyCamera : MonoBehaviour
             cursorLocked = !cursorLocked;
             Cursor.lockState = cursorLocked ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !cursorLocked;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            GameObject b = Instantiate(Bullet,transform.position,Quaternion.identity);
+            b.GetComponent<BulletScript>().BulletForce(200);
+            
         }
     }
 }
