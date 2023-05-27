@@ -10,6 +10,9 @@ public class TargetManager : MonoBehaviour
     public int RoundCounter,MaxRounds;
     public GameObject RightImage;
     public GameObject[] WrongImage;
+    public int CorrectHits;
+    public int WrongHits;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,12 @@ public class TargetManager : MonoBehaviour
         if (HitValue==1)
         {
             Debug.Log("correct hit");
+            CorrectHits += 1;
         }
         else
         {
             Debug.Log("Wrong hit");
+            WrongHits += 1;
         }
        
         Invoke(nameof(ResetTargets),3f);
@@ -87,6 +92,7 @@ public class TargetManager : MonoBehaviour
                             item.GetComponent<TargetMove>().isCorrect = 1;
                             RightImage.transform.parent = item.transform;
                             RightImage.transform.position = item.transform.position;
+                            RightImage.transform.localPosition = new Vector3(RightImage.transform.localPosition.x, 1.05f, RightImage.transform.localPosition.z);
                         }
                         else
                         {
@@ -94,6 +100,7 @@ public class TargetManager : MonoBehaviour
                             item.GetComponent<TargetMove>().isCorrect = 0;
                             WrongImage[im].transform.parent = item.transform;
                             WrongImage[im].transform.position = item.transform.position;
+                            WrongImage[im].transform.localPosition = new Vector3(WrongImage[im].transform.localPosition.x, 1.05f, WrongImage[im].transform.localPosition.z);
                             im++;
 
                         }
@@ -120,12 +127,14 @@ public class TargetManager : MonoBehaviour
                             item.GetComponent<TargetMove>().isCorrect = 1;
                             RightImage.transform.parent = item.transform;
                             RightImage.transform.position = item.transform.position;
+                            RightImage.transform.localPosition = new Vector3(RightImage.transform.localPosition.x, 1.05f, RightImage.transform.localPosition.z);
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
                             WrongImage[im].transform.parent = item.transform;
                             WrongImage[im].transform.position = item.transform.position;
+                            WrongImage[im].transform.localPosition = new Vector3(WrongImage[im].transform.localPosition.x, 1.05f, WrongImage[im].transform.localPosition.z);
                             im++;
                         }
                         i++;
@@ -150,13 +159,16 @@ public class TargetManager : MonoBehaviour
                         {
                             item.GetComponent<TargetMove>().isCorrect = 1;
                             RightImage.transform.parent = item.transform;
+                           
                             RightImage.transform.position = item.transform.position;
+                            RightImage.transform.localPosition = new Vector3(RightImage.transform.localPosition.x, 1.05f, RightImage.transform.localPosition.z);
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
                             WrongImage[im].transform.parent = item.transform;
                             WrongImage[im].transform.position = item.transform.position;
+                            WrongImage[im].transform.localPosition = new Vector3(WrongImage[im].transform.localPosition.x, 1.05f, WrongImage[im].transform.localPosition.z);
                             im++;
                         }
                         i++;
@@ -182,12 +194,14 @@ public class TargetManager : MonoBehaviour
                             item.GetComponent<TargetMove>().isCorrect = 1;
                             RightImage.transform.parent = item.transform;
                             RightImage.transform.position = item.transform.position;
+                            RightImage.transform.localPosition = new Vector3(RightImage.transform.localPosition.x, 1.05f, RightImage.transform.localPosition.z);
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
                             WrongImage[im].transform.parent = item.transform;
                             WrongImage[im].transform.position = item.transform.position;
+                            WrongImage[im].transform.localPosition = new Vector3(WrongImage[im].transform.localPosition.x, 1.05f, WrongImage[im].transform.localPosition.z);
                             im++;
                         }
                         i++;
@@ -213,12 +227,14 @@ public class TargetManager : MonoBehaviour
                             item.GetComponent<TargetMove>().isCorrect = 1;
                             RightImage.transform.parent = item.transform;
                             RightImage.transform.position = item.transform.position;
+                            RightImage.transform.localPosition = new Vector3(RightImage.transform.localPosition.x, 1.05f, RightImage.transform.localPosition.z);
                         }
                         else
                         {
                             item.GetComponent<TargetMove>().isCorrect = 0;
                             WrongImage[im].transform.parent = item.transform;
                             WrongImage[im].transform.position = item.transform.position;
+                            WrongImage[im].transform.localPosition = new Vector3(WrongImage[im].transform.localPosition.x, 1.05f, WrongImage[im].transform.localPosition.z);
                             im++;
                         }
                         i++;
