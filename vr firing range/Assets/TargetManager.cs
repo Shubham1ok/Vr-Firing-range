@@ -63,8 +63,8 @@ public class TargetManager : MonoBehaviour
     }
     public void SpawnTargets()
     {
-        RoundCounter++;
-        if (RoundCounter <= MaxRounds)
+        
+        if (RoundCounter < MaxRounds)
         {
             int i = 0;
             int im = 0;
@@ -243,6 +243,7 @@ public class TargetManager : MonoBehaviour
 
 
             }
+            RoundCounter++;
         }
         
     }
